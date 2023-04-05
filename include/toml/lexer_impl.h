@@ -46,6 +46,25 @@ bool toml_lexer_process_string(toml_lexer_t *lexer, reader_t *reader);
 bool toml_lexer_is_string_character(char character);
 
 /**
+ * @brief Process whitespace
+ *
+ * @param lexer the lexer
+ * @param reader the reader
+ * @return true if no error occured
+ * @return false if an error occured
+ */
+bool toml_lexer_process_whitespace(toml_lexer_t *lexer, reader_t *reader);
+
+/**
+ * @brief Check whether a character is a whitespace character
+ *
+ * @param character the character
+ * @return true if the character is a whitespace character
+ * @return false if the character is not a whitespace character
+ */
+bool toml_lexer_is_whitespace_character(char character);
+
+/**
  * @brief Push a token
  *
  * @param lexer the lexer

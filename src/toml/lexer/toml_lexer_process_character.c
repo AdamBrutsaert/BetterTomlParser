@@ -16,6 +16,8 @@ bool toml_lexer_process_character(
 
     if (toml_lexer_is_string_character(character))
         return toml_lexer_process_string(lexer, reader);
+    if (toml_lexer_is_whitespace_character(character))
+        return toml_lexer_process_whitespace(lexer, reader);
     reader_next(reader);
     return true;
 }

@@ -31,7 +31,7 @@ int main(void)
     if (reader == NULL || lexer == NULL) {
         reader_delete(reader);
         toml_lexer_delete(lexer);
-        return false;
+        return 84;
     }
     if (!reader_push_file(reader, "test.toml")
         || !toml_lexer_process(lexer, reader)) {
