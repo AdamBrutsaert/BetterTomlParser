@@ -12,8 +12,8 @@ intmax_t string_to_integer(const char *string)
     intmax_t result = 0;
     int8_t sign = 1;
 
-    if (*string == '-') {
-        sign = -1;
+    if (*string == '-' || *string == '+') {
+        sign -= 2 * (*string == '-');
         string++;
     }
     for (; *string >= '0' && *string <= '9'; string++)
