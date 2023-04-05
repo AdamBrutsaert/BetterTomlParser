@@ -9,7 +9,6 @@
 
 #include "reader.h"
 
-
 struct reader {
     char *buffer;
     size_t length;
