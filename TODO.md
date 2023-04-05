@@ -4,7 +4,6 @@
 
 # Lexing
 
-* Lexing single quote
 * Escape sequence in double quote lexing
 * Lexing triple single quote
 * Lexing triple double quote

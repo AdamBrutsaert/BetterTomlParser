@@ -15,6 +15,8 @@ static bool toml_lexer_process_character3(
 {
     if (character == '"')
         return toml_lexer_process_double_quoted_string(lexer, reader);
+    if (character == '\'')
+        return toml_lexer_process_single_quoted_string(lexer, reader);
     reader_next(reader);
     return true;
 }

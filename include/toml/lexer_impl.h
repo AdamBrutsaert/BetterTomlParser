@@ -102,7 +102,7 @@ bool toml_lexer_process_single_character(
 );
 
 /**
- * @brief Process double quote string
+ * @brief Process double quoted string
  *
  * @param lexer the lexer
  * @param reader the reader
@@ -110,6 +110,19 @@ bool toml_lexer_process_single_character(
  * @return false if an error occured
  */
 bool toml_lexer_process_double_quoted_string(
+    toml_lexer_t *lexer,
+    reader_t *reader
+);
+
+/**
+ * @brief Process signle quoted string
+ *
+ * @param lexer the lexer
+ * @param reader the reader
+ * @return true if no error occured
+ * @return false if an error occured
+ */
+bool toml_lexer_process_single_quoted_string(
     toml_lexer_t *lexer,
     reader_t *reader
 );
