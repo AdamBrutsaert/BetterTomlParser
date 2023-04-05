@@ -17,6 +17,7 @@ struct toml_variant {
         double floating;
         bool boolean;
         toml_array_t *array;
+        toml_table_t *table;
     } value;
 };
 

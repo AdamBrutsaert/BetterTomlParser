@@ -9,7 +9,6 @@
 
 # Parsing
 
-* Table
 * Parser
 
 # Future

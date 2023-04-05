@@ -8,6 +8,7 @@
 #pragma once
 
 #include "array.h"
+#include "table.h"
 
 #include <stdint.h>
 
@@ -19,7 +20,8 @@ typedef enum {
     TOML_VARIANT_INTEGER,
     TOML_VARIANT_FLOAT,
     TOML_VARIANT_BOOLEAN,
-    TOML_VARIANT_ARRAY
+    TOML_VARIANT_ARRAY,
+    TOML_VARIANT_TABLE
 } toml_variant_type_t;
 
 /**
@@ -96,6 +98,16 @@ void toml_variant_set_string(toml_variant_t *variant, char *value);
 void toml_variant_set_array(toml_variant_t *variant, toml_array_t *array);
 
 /**
+ * @brief Set the variant to a table
+ *
+ * @param variant the variant
+ * @param table the table
+ *
+ * @warning the variant will free the table
+ */
+void toml_variant_set_table(toml_variant_t *variant, toml_table_t *table);
+
+/**
  * @brief Get the integer value of a variant
  *
  * @param variant the variant
@@ -134,3 +146,11 @@ char *toml_variant_get_string(toml_variant_t *variant);
  * @return toml_array_t* the value
  */
 toml_array_t *toml_variant_get_array(toml_variant_t *variant);
+
+/**
+ * @brief Get the table value of a variant
+ *
+ * @param variant the variant
+ * @return toml_table_t* the value
+ */
+toml_table_t *toml_variant_get_table(toml_variant_t *variant);
