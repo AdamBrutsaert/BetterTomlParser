@@ -9,5 +9,5 @@
 
 bool toml_lexer_is_whitespace_character(char c)
 {
-    return c == ' ' || c == '\t';
+    return c == ' ' || c == '\t' || c == '\r';
 }

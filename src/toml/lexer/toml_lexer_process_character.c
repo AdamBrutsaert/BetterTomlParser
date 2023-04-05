@@ -18,6 +18,8 @@ bool toml_lexer_process_character(
         return toml_lexer_process_string(lexer, reader);
     if (toml_lexer_is_whitespace_character(character))
         return toml_lexer_process_whitespace(lexer, reader);
+    if (character == '#')
+        return toml_lexer_process_comment(lexer, reader);
     reader_next(reader);
     return true;
 }

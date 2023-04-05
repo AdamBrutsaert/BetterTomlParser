@@ -17,6 +17,21 @@ struct toml_lexer {
 };
 
 /**
+ * @brief Push a token
+ *
+ * @param lexer the lexer
+ * @param type the token type
+ * @param value the token value
+ * @return true if the token was pushed
+ * @return false if the token was not pushed
+ */
+bool toml_lexer_push_token(
+    toml_lexer_t *lexer,
+    toml_token_type_t type,
+    char *value
+);
+
+/**
  * @brief Process a character
  *
  * @param lexer the lexer
@@ -65,16 +80,11 @@ bool toml_lexer_process_whitespace(toml_lexer_t *lexer, reader_t *reader);
 bool toml_lexer_is_whitespace_character(char character);
 
 /**
- * @brief Push a token
+ * @brief Process a comment
  *
  * @param lexer the lexer
- * @param type the token type
- * @param value the token value
- * @return true if the token was pushed
- * @return false if the token was not pushed
+ * @param reader the reader
+ * @return true if no error occured
+ * @return false if an error occured
  */
-bool toml_lexer_push_token(
-    toml_lexer_t *lexer,
-    toml_token_type_t type,
-    char *value
-);
+bool toml_lexer_process_comment(toml_lexer_t *lexer, reader_t *reader);
