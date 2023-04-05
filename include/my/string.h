@@ -10,3 +10,5 @@
 #include <stddef.h>
 
 size_t my_strlen(const char *string);
+char *my_strncpy(char *dest, const char *src, size_t bytes);
+char *my_strndup(const char *string, size_t bytes);

@@ -72,9 +72,18 @@ bool reader_push_file(reader_t *reader, const char *path);
 char reader_next(reader_t *reader);
 
 /**
- * @brief get the next character
+ * @brief Get the next character
  *
  * @param reader The reader
  * @return char The next character
  */
 char reader_peek(reader_t *reader);
+
+/**
+ * @brief Allocate a string containing a certain amount bytes before the cursor
+ *
+ * @param reader The reader
+ * @param bytes The number of bytes
+ * @return char* The string
+ */
+char *reader_get_previous(reader_t *reader, size_t bytes);
