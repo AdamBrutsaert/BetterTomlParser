@@ -1,0 +1,11 @@
+# VSCode
+/.vscode
+
+# Clangd
+/.cache
+/compile_commands.json
+
+# Project
+/toml
+/build
+/test.toml
