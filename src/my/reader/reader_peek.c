@@ -5,11 +5,11 @@
 ** reader_peek.c
 */
 
-#include "toml/reader_impl.h"
+#include "my/reader_impl.h"
 
 char reader_peek(reader_t *reader)
 {
-    if (reader->current >= reader->length)
+    if (reader->cursor >= reader->length)
         return '\0';
-    return reader->content[reader->current];
+    return reader->buffer[reader->cursor];
 }
