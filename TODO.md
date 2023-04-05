@@ -5,7 +5,7 @@
 # Lexing
 
 * Lexing single quote
-* Lexing double quote
+* Escape sequence in double quote lexing
 * Lexing triple single quote
 * Lexing triple double quote
 * Lexing double left bracket

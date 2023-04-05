@@ -7,6 +7,18 @@
 
 #include "toml/lexer_impl.h"
 
+static bool toml_lexer_process_character3(
+    toml_lexer_t *lexer,
+    reader_t *reader,
+    char character
+)
+{
+    if (character == '"')
+        return toml_lexer_process_double_quoted_string(lexer, reader);
+    reader_next(reader);
+    return true;
+}
+
 static bool toml_lexer_process_character2(
     toml_lexer_t *lexer,
     reader_t *reader,
@@ -31,8 +43,7 @@ static bool toml_lexer_process_character2(
     if (character == '=')
         return toml_lexer_process_single_character(lexer, reader,
             TOML_TOKEN_EQUAL);
-    reader_next(reader);
-    return true;
+    return toml_lexer_process_character3(lexer, reader, character);
 }
 
 bool toml_lexer_process_character(

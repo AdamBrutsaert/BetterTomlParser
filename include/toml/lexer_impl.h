@@ -100,3 +100,16 @@ bool toml_lexer_process_single_character(
     reader_t *reader,
     toml_token_type_t type
 );
+
+/**
+ * @brief Process double quote string
+ *
+ * @param lexer the lexer
+ * @param reader the reader
+ * @return true if no error occured
+ * @return false if an error occured
+ */
+bool toml_lexer_process_double_quoted_string(
+    toml_lexer_t *lexer,
+    reader_t *reader
+);
