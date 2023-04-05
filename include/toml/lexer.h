@@ -34,3 +34,19 @@ void toml_lexer_delete(toml_lexer_t *lexer);
  * @param reader the reader
  */
 bool toml_lexer_process(toml_lexer_t *lexer, reader_t *reader);
+
+/**
+ * @brief Get the next token and move the cursor forward
+ *
+ * @param lexer the lexer
+ * @return toml_token_t* the next token
+ */
+toml_token_t *toml_lexer_next(toml_lexer_t *lexer);
+
+/**
+ * @brief Get the next token
+ *
+ * @param lexer the lexer
+ * @return toml_token_t* the current token
+ */
+toml_token_t *toml_lexer_peek(toml_lexer_t *lexer);

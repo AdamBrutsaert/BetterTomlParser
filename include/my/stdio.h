@@ -7,4 +7,8 @@
 
 #pragma once
 
+#include <stdint.h>
+
 void my_putc(char character);
+void my_puts(const char *string);
+void my_putu(uintmax_t number);

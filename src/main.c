@@ -7,6 +7,21 @@
 
 #include "my/reader.h"
 #include "toml/lexer.h"
+#include "my/stdio.h"
+
+static void print_lexer(toml_lexer_t *lexer)
+{
+    toml_token_t *token = toml_lexer_next(lexer);
+
+    while (token != NULL) {
+        my_putc('[');
+        my_putu(toml_token_get_type(token));
+        my_puts("] ");
+        my_puts(toml_token_get_value(token));
+        my_putc('\n');
+        token = toml_lexer_next(lexer);
+    }
+}
 
 int main(void)
 {
@@ -24,6 +39,7 @@ int main(void)
         reader_delete(reader);
         return 84;
     }
+    print_lexer(lexer);
     reader_delete(reader);
     toml_lexer_delete(lexer);
     return 0;
