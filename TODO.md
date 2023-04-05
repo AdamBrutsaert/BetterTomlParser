@@ -5,10 +5,6 @@
 # Lexing
 
 * Escape sequence in double quote lexing
-* Lexing triple single quote
-* Lexing triple double quote
-* Lexing double left bracket
-* Lexing double right bracket
 * Clear lexer when an error occurs
 
 # Parsing
@@ -16,3 +12,10 @@
 * Variant
 * Hashmap
 * Array
+
+# Future
+
+* Support [UTF-8](https://toml.io/en/v1.0.0#spec)
+* Support [exponential](https://toml.io/en/v1.0.0#float)
+* Support [Date and Time](https://toml.io/en/v1.0.0#offset-date-time)
+* Support [Array of tables](https://toml.io/en/v1.0.0#array-of-tables)
