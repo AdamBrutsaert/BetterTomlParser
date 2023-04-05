@@ -18,6 +18,5 @@ bool toml_lexer_process_string(toml_lexer_t *lexer, reader_t *reader)
         length++;
     }
     value = reader_get_previous(reader, length);
-    return value != NULL
-        && toml_lexer_push_token(lexer, TOML_TOKEN_STRING, value);
+    return value && toml_lexer_push_token(lexer, TOML_TOKEN_STRING, value);
 }

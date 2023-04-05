@@ -88,3 +88,15 @@ bool toml_lexer_is_whitespace_character(char character);
  * @return false if an error occured
  */
 bool toml_lexer_process_comment(toml_lexer_t *lexer, reader_t *reader);
+
+/**
+ * @brief Process a single character
+ *
+ * @return true if no error occured
+ * @return false if an error occured
+ */
+bool toml_lexer_process_single_character(
+    toml_lexer_t *lexer,
+    reader_t *reader,
+    toml_token_type_t type
+);

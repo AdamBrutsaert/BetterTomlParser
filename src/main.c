@@ -12,12 +12,18 @@
 static void print_lexer(toml_lexer_t *lexer)
 {
     toml_token_t *token = toml_lexer_next(lexer);
+    char *value;
 
     while (token != NULL) {
         my_putc('[');
         my_putu(toml_token_get_type(token));
         my_puts("] ");
-        my_puts(toml_token_get_value(token));
+        value = toml_token_get_value(token);
+        if (value[0] == '\n') {
+            my_puts("\\n");
+        } else {
+            my_puts(toml_token_get_value(token));
+        }
         my_putc('\n');
         token = toml_lexer_next(lexer);
     }

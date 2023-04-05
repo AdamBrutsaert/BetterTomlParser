@@ -24,7 +24,6 @@ typedef enum {
     TOML_TOKEN_STRING,
     TOML_TOKEN_DOUBLE_QUOTED_STRING,
     TOML_TOKEN_SIMPLE_QUOTED_STRING,
-    TOML_TOKEN_NUMBER
 } toml_token_type_t;
 
 /**
