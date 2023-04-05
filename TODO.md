@@ -9,6 +9,7 @@
 * Lexing triple double quote
 * Lexing double left bracket
 * Lexing double right bracket
+* Clear lexer when an error occurs
 
 # Parsing
 
