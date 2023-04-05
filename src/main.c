@@ -6,22 +6,25 @@
 */
 
 #include "my/reader.h"
-#include "my/stdio.h"
+#include "toml/lexer.h"
 
 int main(void)
 {
     reader_t *reader = reader_new();
+    toml_lexer_t *lexer = toml_lexer_new();
 
-    if (!reader_push_string(reader, "Hello world!\n")) {
+    if (reader == NULL || lexer == NULL) {
+        reader_delete(reader);
+        toml_lexer_delete(lexer);
+        return false;
+    }
+    if (!reader_push_file(reader, "test.toml")
+        || !toml_lexer_process(lexer, reader)) {
+        toml_lexer_delete(lexer);
         reader_delete(reader);
         return 84;
     }
-    if (!reader_push_file(reader, "test.toml")) {
-        reader_delete(reader);
-        return 84;
-    }
-    while (reader_peek(reader) != '\0')
-        my_putc(reader_next(reader));
     reader_delete(reader);
+    toml_lexer_delete(lexer);
     return 0;
 }
