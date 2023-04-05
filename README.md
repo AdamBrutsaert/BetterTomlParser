@@ -1,6 +1,7 @@
 # BetterTomlParser
 
-This project is an implementation of a TOML Parser in C.
+This project is an implementation of a TOML Parser in C.  
+It is still under development, you can check the [TODO](/TODO.md) to see the progess.
 
 ## Constraints
 
