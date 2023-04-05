@@ -9,9 +9,9 @@
 
 # Parsing
 
-* Variant
-* Hashmap
+* Table
 * Array
+* Parser
 
 # Future
 
