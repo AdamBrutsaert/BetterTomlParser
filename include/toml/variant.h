@@ -7,8 +7,9 @@
 
 #pragma once
 
+#include "array.h"
+
 #include <stdint.h>
-#include <stdbool.h>
 
 typedef struct toml_variant toml_variant_t;
 
@@ -18,6 +19,7 @@ typedef enum {
     TOML_VARIANT_INTEGER,
     TOML_VARIANT_FLOAT,
     TOML_VARIANT_BOOLEAN,
+    TOML_VARIANT_ARRAY
 } toml_variant_type_t;
 
 /**
@@ -84,6 +86,16 @@ void toml_variant_set_boolean(toml_variant_t *variant, bool value);
 void toml_variant_set_string(toml_variant_t *variant, char *value);
 
 /**
+ * @brief Set the variant to an array
+ *
+ * @param variant the variant
+ * @param array the array
+ *
+ * @warning the variant will free the array
+ */
+void toml_variant_set_array(toml_variant_t *variant, toml_array_t *array);
+
+/**
  * @brief Get the integer value of a variant
  *
  * @param variant the variant
@@ -114,3 +126,11 @@ bool toml_variant_get_boolean(toml_variant_t *variant);
  * @return char* the value
  */
 char *toml_variant_get_string(toml_variant_t *variant);
+
+/**
+ * @brief Get the array value of a variant
+ *
+ * @param variant the variant
+ * @return toml_array_t* the value
+ */
+toml_array_t *toml_variant_get_array(toml_variant_t *variant);

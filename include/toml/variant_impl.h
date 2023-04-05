@@ -16,6 +16,7 @@ struct toml_variant {
         intmax_t integer;
         double floating;
         bool boolean;
+        toml_array_t *array;
     } value;
 };
 

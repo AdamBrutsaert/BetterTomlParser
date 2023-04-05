@@ -10,7 +10,6 @@
 # Parsing
 
 * Table
-* Array
 * Parser
 
 # Future
