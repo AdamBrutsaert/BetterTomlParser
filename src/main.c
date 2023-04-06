@@ -5,48 +5,20 @@
 ** main.c
 */
 
-#include "my/reader.h"
-#include "toml/lexer.h"
-#include "my/stdio.h"
-
-static void print_lexer(toml_lexer_t *lexer)
-{
-    toml_token_t *token = toml_lexer_next(lexer);
-    char *value;
-
-    while (token != NULL) {
-        my_putc('[');
-        my_putu(toml_token_get_type(token));
-        my_puts("] ");
-        value = toml_token_get_value(token);
-        if (value[0] == '\n') {
-            my_puts("\\n");
-        } else {
-            my_puts(toml_token_get_value(token));
-        }
-        my_putc('\n');
-        token = toml_lexer_next(lexer);
-    }
-}
+#include "toml/parser.h"
 
 int main(void)
 {
-    reader_t *reader = reader_new();
-    toml_lexer_t *lexer = toml_lexer_new();
+    toml_parser_t *parser = toml_parser_new();
+    toml_table_t *table;
 
-    if (reader == NULL || lexer == NULL) {
-        reader_delete(reader);
-        toml_lexer_delete(lexer);
+    if (!parser)
         return 84;
-    }
-    if (!reader_push_file(reader, "test.toml")
-        || !toml_lexer_process(lexer, reader)) {
-        toml_lexer_delete(lexer);
-        reader_delete(reader);
+    table = toml_parser_process_file(parser, "test.toml");
+    if (!table)
         return 84;
-    }
-    print_lexer(lexer);
-    reader_delete(reader);
-    toml_lexer_delete(lexer);
+    printf("%s\n", toml_variant_get_string(toml_table_get(table, "value")));
+    toml_table_delete(table);
+    toml_parser_delete(parser);
     return 0;
 }

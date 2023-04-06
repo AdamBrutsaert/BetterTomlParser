@@ -10,6 +10,8 @@
 typedef struct toml_token toml_token_t;
 
 typedef enum {
+    TOML_TOKEN_NONE,
+
     // Symbols
     TOML_TOKEN_EQUAL,
     TOML_TOKEN_COMMA,

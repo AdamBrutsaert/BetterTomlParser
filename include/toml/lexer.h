@@ -54,6 +54,14 @@ toml_token_t *toml_lexer_next(toml_lexer_t *lexer);
  * @brief Get the next token
  *
  * @param lexer the lexer
- * @return toml_token_t* the current token
+ * @return toml_token_t* the next token
  */
 toml_token_t *toml_lexer_peek(toml_lexer_t *lexer);
+
+/**
+ * @brief Get the next token type
+ *
+ * @param lexer the lexer
+ * @return toml_token_type_t the next token type
+ */
+toml_token_type_t toml_lexer_peek_type(toml_lexer_t *lexer);
