@@ -28,6 +28,13 @@ toml_lexer_t *toml_lexer_new(void);
 void toml_lexer_delete(toml_lexer_t *lexer);
 
 /**
+ * @brief Clear a lexer
+ *
+ * @param lexer the lexer to free
+ */
+void toml_lexer_clear(toml_lexer_t *lexer);
+
+/**
  * @brief Tokenize content of a reader
  *
  * @param lexer the lexer

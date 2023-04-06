@@ -13,8 +13,7 @@ void toml_lexer_delete(toml_lexer_t *lexer)
 {
     if (lexer == NULL)
         return;
-    for (size_t i = 0; i < lexer->length; i++)
-        toml_token_delete(lexer->tokens[i]);
+    toml_lexer_clear(lexer);
     free(lexer->tokens);
     free(lexer);
 }

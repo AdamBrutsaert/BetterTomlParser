@@ -5,7 +5,6 @@
 # Lexing
 
 * Escape sequence in double quote lexing
-* Clear lexer when an error occurs
 
 # Parsing
 
