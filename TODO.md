@@ -13,7 +13,8 @@
 
 # Future
 
+* Support [Triple Quoted String](https://toml.io/en/v1.0.0#string)
 * Support [UTF-8](https://toml.io/en/v1.0.0#spec)
-* Support [exponential](https://toml.io/en/v1.0.0#float)
+* Support [Exponential](https://toml.io/en/v1.0.0#float)
 * Support [Date and Time](https://toml.io/en/v1.0.0#offset-date-time)
 * Support [Array of tables](https://toml.io/en/v1.0.0#array-of-tables)
