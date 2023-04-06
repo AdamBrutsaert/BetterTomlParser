@@ -8,7 +8,13 @@
 
 # Parsing
 
-* Parser
+* Parsing integer
+* Parsing float
+* Parsing boolean
+* Parsing string
+* Parsing array
+* Parsing table
+
 * Check my_strdup in process_value
 * Delete variant if an error occurs while parsing key/value
 * Delete root if an error occurs while parsing
