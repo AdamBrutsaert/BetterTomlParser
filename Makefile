@@ -10,7 +10,7 @@ SRC := $(shell find src -type f -name "*.c")
 OBJ := $(SRC:src/%.c=build/%.o)
 
 CPPFLAGS := -Iinclude
-CFLAGS := -Wall -Wextra
+CFLAGS := -Wall -Wextra -g
 
 all: $(NAME)
 

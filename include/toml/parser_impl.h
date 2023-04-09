@@ -29,5 +29,12 @@ bool toml_parser_process_key_value(toml_parser_t *parser);
 bool toml_parser_process_key(toml_parser_t *parser);
 bool toml_parser_process_value(toml_parser_t *parser);
 
+// Values
+bool toml_parser_process_integer(toml_parser_t *parser);
+bool toml_parser_process_float(toml_parser_t *parser);
+bool toml_parser_process_boolean(toml_parser_t *parser);
+bool toml_parser_process_string(toml_parser_t *parser);
+
+// Checkers
 bool toml_parser_is_key(toml_parser_t *parser);
 bool toml_parser_is_value(toml_parser_t *parser);

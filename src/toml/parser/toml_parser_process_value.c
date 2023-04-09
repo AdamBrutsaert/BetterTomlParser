@@ -6,18 +6,18 @@
 */
 
 #include "toml/parser_impl.h"
-#include "my/string.h"
+#include "my/conversion.h"
 
 bool toml_parser_process_value(toml_parser_t *parser)
 {
-    toml_token_t *token = toml_lexer_next(parser->lexer);
+    toml_token_t *token = toml_lexer_peek(parser->lexer);
+    char *value = toml_token_get_value(token);
 
-    parser->current_value = toml_variant_new();
-    if (parser->current_value == NULL)
-        return false;
-    toml_variant_set_string(
-        parser->current_value,
-        my_strdup(toml_token_get_value(token))
-    );
-    return true;
+    if (string_is_integer(value))
+        return toml_parser_process_integer(parser);
+    if (string_is_float(value))
+        return toml_parser_process_float(parser);
+    if (string_is_boolean(value))
+        return toml_parser_process_boolean(parser);
+    return toml_parser_process_string(parser);
 }

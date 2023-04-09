@@ -13,7 +13,9 @@ toml_table_t *toml_parser_process(toml_parser_t *parser)
     parser->current = parser->root;
     if (parser->root == NULL)
         return NULL;
-    if (!toml_parser_process_key_value(parser))
-        return NULL;
+    while (toml_lexer_peek_type(parser->lexer) != TOML_TOKEN_NONE) {
+        if (!toml_parser_process_key_value(parser))
+            return NULL;
+    }
     return parser->root;
 }
